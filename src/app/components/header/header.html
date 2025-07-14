@@ -1,0 +1,16 @@
+<div class="header" [style.background]="isHovering || isHovering2 ? 'maroon' : ''">
+    <a routerLink="/ejercicio1"
+       routerLinkActive="active"
+       class="question-link"
+       (mouseenter)="onMouseEnter()"
+       (mouseleave)="onMouseLeave()">
+        {{ isHovering ? 'GitHub' : 'Ejercicio 1' }}
+    </a>
+    <a routerLink="/ejercicio2"
+       routerLinkActive="active"
+       class="question-link"
+       (mouseenter)="onMouseEnter2()"
+       (mouseleave)="onMouseLeave2()">
+        {{ isHovering2 ? 'Rick & Morty' : 'Ejercicio 2' }}
+    </a>
+</div>

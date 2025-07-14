@@ -1,0 +1,25 @@
+@if (!selectedUser) {
+<div class="journal">
+    <div class="first photo">
+        <div>
+            <div class="image-container2">
+                @for (user of users; track $index) {
+                <img [src]="user.avatar_url" [alt]="user.login" (click)="selectUser(user)">
+                }
+                <span class="caption" (click)="onReset()">Profiles: {{ searchTerm }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+} @else {
+<div class="journal">
+    <div class="first photo">
+        <div>
+            <div class="image-container2">
+                <img [src]="selectedUser.avatar_url" [alt]="selectedUser.login" (click)="onBackToPhotos()" style="width:500px; height:500px;">
+                <p class="caption">{{ selectedUser.login }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+}

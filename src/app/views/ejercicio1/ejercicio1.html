@@ -1,0 +1,13 @@
+@if (!showResults) {
+  <app-form (search)="onSearch($event)"></app-form>
+}
+
+@if (showResults) {
+  <app-github
+    [users]="users"
+    [searchTerm]="searchTerm"
+    [selectedUser]="selectedUser"
+    (userSelected)="onUserSelected($event)"
+    (reset)="onReset()">
+  </app-github>
+}

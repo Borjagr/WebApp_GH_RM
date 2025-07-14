@@ -1,0 +1,52 @@
+<!-- FORM -->
+@if (!showResults) {
+  <form (ngSubmit)="onSubmit()" [formGroup]="reactiveForm" method="post">
+    <div class="answer-bank">
+      <div class="answer">
+        <input formControlName="name" type="text" name="name" id="name" placeholder="nombre" />
+      </div>
+      <div class="answer">
+        <input type="submit" value="Enviar" class="primary" />
+      </div>
+    </div>
+  </form>
+}
+
+<!-- PANEL -->
+@if (showResults) {
+  @if (!showEpisodes) {
+    <h1 (click)="reset()">{{ locationName }}</h1>
+    <div class="grid">
+      @for (resident of residents; track $index) {
+        <div class="card">
+          <div class='photo'
+            [style.background-image]="'url(' + resident.image + ')'"
+            style="background-size:cover;">
+          </div>
+          <div class="footer">
+            <div class="titles">
+              <h2 class='card-title' (click)="onResidentClick(resident)">{{ resident.name }}</h2>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+    <div id='render-more'>
+      <button (click)="nextPlanet()">Anterior</button>
+      <button (click)="prevPlanet()">Siguiente</button>
+    </div>
+  }
+
+  @if (showEpisodes && selectedEpisodes.length > 0) {
+    @for (ep of selectedEpisodes; track $index) {
+      <div class="card" (click)="closeEpisodes()">
+        <div class="footer">
+          <div class="titles">
+            <h2 class='card-title'>{{ ep.name }}</h2>
+            <h3>{{ ep.air_date }}</h3>
+          </div>
+        </div>
+      </div>
+    }
+  }
+}

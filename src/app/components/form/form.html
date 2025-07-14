@@ -1,0 +1,10 @@
+<form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+    <div class="answer-bank">
+    <div class="answer">
+  <input formControlName="name" type="text" value="name" id="name" placeholder="nombre" />
+    </div>
+    <div class="answer">
+  <button type="submit" value="Enviar" class="primary">Enviar</button>
+    </div>
+    </div>
+</form>
